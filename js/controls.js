@@ -17,7 +17,19 @@ class Controls {
             this.player.speedX = -10;
           }
           break;
+        case "ArrowUp":
+          if(this.player.y > 1) {
+            this.player.speedY = -20;
+          }
+          break;
       }
     });
+
+    window.addEventListener("keyup", (e) => {
+      this.player.speedX = 0;
+      this.player.speedY = 0;
+    })
   }
+
+
 }
