@@ -7,6 +7,11 @@ class Player {
     this.height = height;
     this.img = new Image();
     this.canvas;
+
+    this.speedX = 0;
+    this.speedY = 0;
+    this.gravity = 0.05;
+    this.gravitySpeed = 0;
   }
   left() {
     return this.x;
@@ -21,6 +26,17 @@ class Player {
 
   bottom() {
     return this.y + this.height;
+  }
+
+  newPos() {    
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed;
+        this.hitBottom();    
+  }
+
+  hitBottom() {
+
   }
 
   crashWith(obstacle) {
