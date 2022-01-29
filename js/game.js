@@ -15,7 +15,7 @@ class Game {
         this.player = new Player(this, 0, 0, 100, 150);
         const controls = new Controls(this);
         controls.keyboardEvents();
-        this.obstacles = new Obstacles(this);
+        this.obstacles = new Obstacles(this, 0, this.canvasHeight - 100, 200, 100 );
 
         this.intervalId = setInterval(() => {
             this.update();
@@ -27,7 +27,7 @@ class Game {
                 
         this.player.draw(this.obstacles);
                 
-        this.obstacles.draw();
+        this.obstacles.draw("/images/uv_map_image.png");
         this.frames++;
     }
     drawBackground() {
