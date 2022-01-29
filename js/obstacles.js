@@ -17,7 +17,7 @@ class Obstacles {
         let myTop = this.y;
         let playerBottom = player.y + player.height;
         if (playerBottom > myTop) {
-            player.y = myTop - player.height
+            player.y = myTop - (player.height - 2)
         }
     }
 }
