@@ -28,17 +28,13 @@ class Player {
     return this.y + this.height;
   }
 
-  newPos() {    
-        this.gravitySpeed += this.gravity;
-        this.x += this.speedX;
-        this.y += this.speedY + this.gravitySpeed;
-        this.hitBottom();    
+  newPos(obstacle) {    
+    this.gravitySpeed += this.gravity;
+    this.x += this.speedX;
+    this.y += this.speedY + this.gravitySpeed;
+    obstacle.floor(this);    
   }
-
-  hitBottom() {
-
-  }
-
+  
   crashWith(obstacle) {
     return !(
       this.bottom() < obstacle.top() ||
@@ -48,8 +44,10 @@ class Player {
     );
   }
 
-  draw() {
-    this.img.src = "./Charmander.png";
+  draw(obstacle) {
+    
+    this.newPos(obstacle);
+    this.img.src = "/images/Charmander.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
