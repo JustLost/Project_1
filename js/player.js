@@ -28,11 +28,18 @@ class Player {
     return this.y + this.height;
   }
 
-  newPos(obstacle) {    
+  newPos(obstacles) {    
     //this.gravitySpeed += this.gravity;
+
     this.x += this.speedX;
     this.y += this.speedY + this.gravitySpeed;
-    obstacle.floor(this);    
+
+    for (let i = 0; i < obstacles.length; i++){
+      obstacles[i].floor(this);
+      obstacles[i].ceiling(this);
+      obstacles[i].rightWall(this);
+    }
+        
   }
   
   crashWith(obstacle) {
@@ -44,9 +51,9 @@ class Player {
     );
   }
 
-  draw(obstacle) {
+  draw(obstacles) {
     
-    this.newPos(obstacle);
+    this.newPos(obstacles);
     this.img.src = "/images/Charmander.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }

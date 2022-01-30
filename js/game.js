@@ -3,7 +3,7 @@ class Game {
         this.canvas = document.getElementById("canvas");
         this.ctx = this.canvas.getContext("2d");
         this.player = null;
-        this.obstacles = null;
+        this.obstacles = [];
         this.frames = 0;
         this.x = 0;
         this.y = 0;
@@ -12,11 +12,15 @@ class Game {
         this.intervalId = null;
     }
     start() {
-        this.player = new Player(this, 0, 0, 100, 150);
+        this.player = new Player(this, 200, 200, 100, 150);
         const controls = new Controls(this);
         controls.keyboardEvents();
-        this.obstacles = new Obstacles(this, 0, this.canvasHeight - 100, 200, 100 );
-
+        
+        this.obstacles.push(new Obstacles(this, 0, 0, 50, this.canvasHeight, "/images/uv_map_image.png"));
+        this.obstacles.push(new Obstacles(this, 0, this.canvasHeight - 50, this.canvasWidth, 50, "/images/uv_map_image.png"));
+        this.obstacles.push(new Obstacles(this, 0, 0, this.canvasWidth, 50, "/images/uv_map_image.png"))
+        this.obstacles.push(new Obstacles(this, this.canvasWidth -50, 0, 50, this.canvasHeight, "/images/uv_map_image.png"));
+        
         this.intervalId = setInterval(() => {
             this.update();
         }, 1000 / 60);
@@ -26,8 +30,11 @@ class Game {
         this.drawBackground();
                 
         this.player.draw(this.obstacles);
-                
-        this.obstacles.draw("/images/uv_map_image.png");
+        
+        for (let i = 0; i < this.obstacles.length; i += 1){
+           this.obstacles[i].draw()
+        }
+
         this.frames++;
     }
     drawBackground() {
