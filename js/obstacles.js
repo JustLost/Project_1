@@ -16,8 +16,13 @@ class Obstacles {
     floor(player) {
         let myTop = this.y;
         let playerBottom = player.y + player.height;
-        if (playerBottom > myTop) {
+        if (playerBottom > myTop && 
+            (player.x < this.x + this.width && 
+            player.x + player.width > this.x)) {
             player.y = myTop - (player.height - 2)
         }
+    }
+    touchingFloor(player) {
+
     }
 }
