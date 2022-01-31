@@ -28,20 +28,21 @@ class Player {
     return this.y + this.height;
   }
 
-  newPos(obstacles) {    
+  newPos(obstacles) {
     //this.gravitySpeed += this.gravity;
 
     this.x += this.speedX;
     this.y += this.speedY + this.gravitySpeed;
 
-    for (let i = 0; i < obstacles.length; i++){
-      obstacles[i].floor(this);
-      obstacles[i].ceiling(this);
-      obstacles[i].rightWall(this);
+    for (let i = 0; i < obstacles.length; i++) {
+      // obstacles[i].floor(this);
+      // obstacles[i].ceiling(this);
+      // obstacles[i].rightWall(this);
+      // obstacles[i].leftWall(this);
+      obstacles[i].checkCollision(this);
     }
-        
   }
-  
+
   crashWith(obstacle) {
     return !(
       this.bottom() < obstacle.top() ||
@@ -52,7 +53,6 @@ class Player {
   }
 
   draw(obstacles) {
-    
     this.newPos(obstacles);
     this.img.src = "/images/Charmander.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
