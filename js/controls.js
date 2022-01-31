@@ -18,7 +18,7 @@ class Controls {
           }
           break;
         case "ArrowUp":
-          if(this.player.y > 1) {
+          if(this.player.y > 1 && ) {
             this.player.speedY = -15;
           }
           break;

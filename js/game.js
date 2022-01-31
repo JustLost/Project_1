@@ -12,7 +12,7 @@ class Game {
         this.intervalId = null;
     }
     start() {
-        this.player = new Player(this, 200, 200, 100, 150);
+        this.player = new Player(this, 200, 200, 50, 100);
         const controls = new Controls(this);
         controls.keyboardEvents();
         
@@ -20,7 +20,12 @@ class Game {
         this.obstacles.push(new Obstacles(this, 0, this.canvasHeight - 50, this.canvasWidth, 50, "/images/uv_map_image.png"));
         this.obstacles.push(new Obstacles(this, 0, 0, this.canvasWidth, 50, "/images/uv_map_image.png"))
         this.obstacles.push(new Obstacles(this, this.canvasWidth -50, 0, 50, this.canvasHeight, "/images/uv_map_image.png"));
-        
+        this.obstacles.push(new Obstacles(this, 250, 200, 700, 50, "/images/uv_map_image.png"))
+        this.obstacles.push(new Obstacles(this, 250, 350, 700, 50, "/images/uv_map_image.png"))
+        this.obstacles.push(new Obstacles(this, 250, 400, 700, 50, "/images/uv_map_image.png"))
+        this.obstacles.push(new Obstacles(this, 300, 450, 600, 50, "/images/uv_map_image.png"))
+        this.obstacles.push(new Obstacles(this, 50, 350, 50, 50, "/images/uv_map_image.png"))
+
         this.intervalId = setInterval(() => {
             this.update();
         }, 1000 / 60);
