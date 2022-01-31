@@ -22,13 +22,12 @@ class Obstacles {
   checkCollision(player) {
     if (
       player.x + player.width < this.x ||
-      player.x > this.x + this.w ||
-      player.y + player.height < this.width ||
-      player.y > this.width + this.height
+      player.x > this.x + this.width ||
+      player.y + player.height < this.y ||
+      player.y > this.y + this.height
     ) {
       return;
     }
-
     let playerTop_ObjBottom = Math.abs(player.y - (this.y + this.height));
     let playerRight_ObjLeft = Math.abs(player.x + player.width - this.x);
     let playerLeft_ObjRight = Math.abs(player.x - (this.x + this.width));
@@ -36,12 +35,12 @@ class Obstacles {
 
     if (
       player.y <= this.y + this.height &&
-      player.y + player.h > this.y + this.height &&
+      player.y + player.height > this.y + this.height &&
       playerTop_ObjBottom < playerRight_ObjLeft &&
       playerTop_ObjBottom < playerLeft_ObjRight
     ) {
       player.y = this.y + this.height;
-      player.speedY = 0;
+      //player.speedY = 0;
     }
     if (
       player.y + player.height >= this.y &&
@@ -50,9 +49,9 @@ class Obstacles {
       playerBottom_ObjTop < playerLeft_ObjRight
     ) {
       player.y = this.y - player.height;
-      // player.dy = 0;
-      player.speedY = 0;
-      player.jump = false;
+      //player.dy = 0;
+      //player.speedY = 0;
+      //player.jump = false;
     }
     if (
       player.x + player.width >= this.x &&
@@ -60,8 +59,9 @@ class Obstacles {
       playerRight_ObjLeft < playerTop_ObjBottom &&
       playerRight_ObjLeft < playerBottom_ObjTop
     ) {
-      player.x = this.x - this.width;
-      player.speedX = 0;
+        console.log("bwsodiop");
+      player.x = this.x - player.width;
+      //player.speedX = 0;
     }
     if (
       player.x <= this.x + this.width &&
@@ -69,8 +69,9 @@ class Obstacles {
       playerLeft_ObjRight < playerTop_ObjBottom &&
       playerLeft_ObjRight < playerBottom_ObjTop
     ) {
+        console.log("ews");
       player.x = this.x + this.width;
-      player.speedX = 0;
+      //player.speedX = 0;
     }
   }
 
