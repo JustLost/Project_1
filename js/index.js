@@ -3,6 +3,7 @@ window.onload = () => {
         startGame();
     };
     function startGame() {
+        document.getElementById("start-button").remove();
         const game = new Game();
         game.start();
     }
