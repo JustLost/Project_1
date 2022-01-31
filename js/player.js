@@ -35,10 +35,7 @@ class Player {
     this.y += this.speedY + this.gravitySpeed;
 
     for (let i = 0; i < obstacles.length; i++) {
-      // obstacles[i].floor(this);
-      // obstacles[i].ceiling(this);
-      // obstacles[i].rightWall(this);
-      // obstacles[i].leftWall(this);
+      
       obstacles[i].checkCollision(this);
     }
   }

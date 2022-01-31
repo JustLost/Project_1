@@ -11,13 +11,16 @@ class Obstacles {
   }
   draw() {
     this.image.src = this.tile;
-    this.game.ctx.drawImage(
-      this.image,
-      this.x,
-      this.y,
-      this.width,
-      this.height
-    );
+    // this.game.ctx.drawImage(
+    //   this.image,
+    //   this.x,
+    //   this.y,
+    //   this.width,
+    //   this.height,
+    // );
+     let tilePattern = this.game.ctx.createPattern(this.image, "repeat");
+     this.game.ctx.fillStyle = tilePattern;
+     this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
   }
   checkCollision(player) {
     if (
@@ -59,7 +62,6 @@ class Obstacles {
       playerRight_ObjLeft < playerTop_ObjBottom &&
       playerRight_ObjLeft < playerBottom_ObjTop
     ) {
-        console.log("bwsodiop");
       player.x = this.x - player.width;
       //player.speedX = 0;
     }
@@ -69,7 +71,6 @@ class Obstacles {
       playerLeft_ObjRight < playerTop_ObjBottom &&
       playerLeft_ObjRight < playerBottom_ObjTop
     ) {
-        console.log("ews");
       player.x = this.x + this.width;
       //player.speedX = 0;
     }
