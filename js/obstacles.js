@@ -80,6 +80,7 @@ class Obstacles {
     }
   }
 
+
   left() {
     return this.x;
   }

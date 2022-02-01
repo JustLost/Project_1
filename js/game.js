@@ -13,8 +13,8 @@ class Game {
         this.intervalId = null;
     }
     start() {
-        this.playerOne = new Player(this, 250, 120, 50, 100);
-        this.playerTwo = new Player(this, 250, 120, 50, 100);
+        this.playerOne = new Player(this, 300, 120, 50, 100, "Player One");
+        this.playerTwo = new Player(this, 300, 120, 50, 100, "Player Two");
         const controls = new Controls(this);
         controls.keyboardEvents();
 
@@ -36,19 +36,22 @@ class Game {
         this.obstacles.push(new Obstacles(this, 900, 500, 100, 50, "/images/uv_map_image.png"))
         this.obstacles.push(new Obstacles(this, 900, 200, 50, 50, "/images/uv_map_image.png"))
 
+        this.obstacles.push(new Obstacles(this, 350, 50, 25, 150, "/images/uv_map_image.png"))
+
         this.intervalId = setInterval(() => {
             this.update();
         }, 1000 / 60);
     }
     update() {
         this.clear();
-        this.drawBackground();
-        
+        this.drawBackground();        
 
         this.playerOne.draw(this.obstacles);
         this.playerTwo.draw(this.obstacles);
         
         this.drawHiddenPassage();
+        this.checkWinner(this.playerOne);
+        this.checkWinner(this.playerTwo);
 
         for (let i = 0; i < this.obstacles.length; i += 1){
            this.obstacles[i].draw()
@@ -56,12 +59,47 @@ class Game {
 
         this.frames++;
     }
-    drawHiddenPassage(){
+    drawHiddenPassage() {
         let hiddenImage = new Image();
         hiddenImage.src = "/images/uv_map_image.png";
         let tilePattern = this.ctx.createPattern(hiddenImage, "repeat");
         this.ctx.fillStyle = tilePattern;
         this.ctx.fillRect(250, 250, 650, 150);
+    }
+    checkWinner(player) {
+        let x = 375;
+        let y = 50;
+        let width = 5;
+        let height = 150;
+        let checkPoint= new Image();
+        checkPoint.src = "/images/uv_map_image.png";
+        let tilePattern = this.ctx.createPattern(checkPoint, "repeat");
+        this.ctx.fillStyle = tilePattern;
+        this.ctx.fillRect(x, y, width, height);
+
+        let playerTop_ObjBottom = Math.abs(player.y - (y + height));        
+        let playerLeft_ObjRight = Math.abs(player.x - (x + width));
+        let playerBottom_ObjTop = Math.abs(player.y + player.height - y);
+        if (
+          player.x + player.width < x ||
+          player.x > x + width ||
+          player.y + player.height < this.y ||
+          player.y > y + height
+        ) {
+          return;
+
+        } else if (
+          player.x <= x + width &&
+          player.x + player.width > x + width &&
+          playerLeft_ObjRight < playerTop_ObjBottom &&
+          playerLeft_ObjRight < playerBottom_ObjTop
+        ) {
+          console.log(player.name);
+          
+          document.getElementById("winner").innerHTML = `${player.name} won!`;
+          this.stop();
+          document.getElementById("canvas").remove();
+        }
     }
     drawBackground() {
         //this.drawBackground.src = '';

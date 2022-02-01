@@ -25,3 +25,7 @@ body{text-align: center;background: black;}
     height: 75px;
 }
 
+#winner {
+    color: white;
+    font-size: 200px;
+}

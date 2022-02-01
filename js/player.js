@@ -1,5 +1,5 @@
 class Player {
-  constructor(game, x, y, width, height) {
+  constructor(game, x, y, width, height, name) {
     this.game = game;
     this.x = x;
     this.y = y;
@@ -7,6 +7,8 @@ class Player {
     this.height = height;
     this.img = new Image();
     this.canvas;
+
+    this.name = name;
 
     this.speedX = 0;
     this.speedY = 0;
