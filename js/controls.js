@@ -27,7 +27,7 @@ class Controls {
           ) {
             this.playerOne.isJumping = true;
             console.log(`speedy = ${this.playerOne.speedY}`);
-            this.playerOne.speedY = -20;
+            this.playerOne.speedY = -25;
           } else {
             this.playerOne.speedY += -1;
           }
@@ -51,7 +51,7 @@ class Controls {
           ) {
             this.playerTwo.isJumping = true;
             console.log(`speedy = ${this.playerTwo.speedY}`);
-            this.playerTwo.speedY = -20;
+            this.playerTwo.speedY = -25;
           } else {
             this.playerTwo.speedY += -1;
           }
