@@ -2,7 +2,8 @@ class Game {
     constructor() {
         this.canvas = document.getElementById("canvas");
         this.ctx = this.canvas.getContext("2d");
-        this.player = null;
+        this.playerOne = null;
+        this.playerTwo = null;
         this.obstacles = [];
         this.frames = 0;
         this.x = 0;
@@ -12,7 +13,8 @@ class Game {
         this.intervalId = null;
     }
     start() {
-        this.player = new Player(this, 250, 120, 50, 100);
+        this.playerOne = new Player(this, 250, 120, 50, 100);
+        this.playerTwo = new Player(this, 250, 120, 50, 100);
         const controls = new Controls(this);
         controls.keyboardEvents();
         
@@ -34,7 +36,8 @@ class Game {
         this.clear();
         this.drawBackground();
                 
-        this.player.draw(this.obstacles);
+        this.playerOne.draw(this.obstacles);
+        this.playerTwo.draw(this.obstacles);
         
         for (let i = 0; i < this.obstacles.length; i += 1){
            this.obstacles[i].draw()

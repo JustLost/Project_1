@@ -8,7 +8,7 @@ class Obstacles {
     this.image = new Image();
     this.canvas;
     this.tile = tile;
-    this.player = this.game.player;
+    
   }
   draw() {
     this.image.src = this.tile;
@@ -54,7 +54,7 @@ class Obstacles {
       playerBottom_ObjTop < playerLeft_ObjRight
     ) {
       player.y = this.y - player.height;
-      this.player.isJumping = false;
+      player.isJumping = false;
       //player.dy = 0;
       player.speedY = 0;
       // player.gravitySpeed = 0;
