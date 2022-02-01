@@ -11,7 +11,7 @@ class Player {
     this.speedX = 0;
     this.speedY = 0;
     //this.gravity = 0.05;
-    this.gravitySpeed = 12;
+    this.gravitySpeed = 2;
     this.isJumping = false;
   }
   left() {
@@ -33,9 +33,11 @@ class Player {
     //this.gravitySpeed += this.gravity;
 
     this.x += this.speedX;
-    if(!this.isJumping){
-      this.y += this.speedY + this.gravitySpeed;
-    } 
+    // if(this.isJumping){
+    console.log(`speedy = ${this.speedY}, gravitySpeed= ${this.gravitySpeed}`);
+    this.speedY += this.gravitySpeed;
+    this.y += this.speedY;
+    // }
     for (let i = 0; i < obstacles.length; i++) {
       obstacles[i].checkCollision(this);
     }
@@ -52,7 +54,7 @@ class Player {
 
   draw(obstacles) {
     this.newPos(obstacles);
-    this.img.src = "/images/Charmander.png";
+    this.img.src = "./images/Charmander.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }

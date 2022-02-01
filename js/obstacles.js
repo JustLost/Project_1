@@ -19,9 +19,9 @@ class Obstacles {
     //   this.width,
     //   this.height,
     // );
-     let tilePattern = this.game.ctx.createPattern(this.image, "repeat");
-     this.game.ctx.fillStyle = tilePattern;
-     this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
+    let tilePattern = this.game.ctx.createPattern(this.image, "repeat");
+    this.game.ctx.fillStyle = tilePattern;
+    this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
   }
   checkCollision(player) {
     if (
@@ -44,6 +44,7 @@ class Obstacles {
       playerTop_ObjBottom < playerLeft_ObjRight
     ) {
       player.y = this.y + this.height;
+      player.speedY = 0;
       //player.speedY = 0;
     }
     if (
@@ -53,8 +54,10 @@ class Obstacles {
       playerBottom_ObjTop < playerLeft_ObjRight
     ) {
       player.y = this.y - player.height;
+      this.player.isJumping = false;
       //player.dy = 0;
-      //player.speedY = 0;
+      player.speedY = 0;
+      // player.gravitySpeed = 0;
       //player.jump = false;
     }
     if (
@@ -80,6 +83,7 @@ class Obstacles {
   left() {
     return this.x;
   }
+
   right() {
     return this.x + this.width;
   }

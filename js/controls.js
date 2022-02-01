@@ -18,17 +18,20 @@ class Controls {
           }
           break;
         case "ArrowUp":
-          if (this.player.y > 1) {
+          // console.log("arrowup")
+          if (this.player.y > 1 && this.player.speedY == 0 && !this.player.isJumping) {
             this.player.isJumping = true;
-            this.player.speedY -= 30;
+            console.log(`speedy = ${this.player.speedY}`);
+            this.player.speedY = -20;
             break;
+          }else {
+            this.player.speedY += -1;
           }
       }
     });
 
     window.addEventListener("keyup", (e) => {
       if (e.code === "ArrowUp") {
-        this.player.isJumping = false;
         this.player.speedY = 0;
       } else {
         this.player.speedX = 0;
