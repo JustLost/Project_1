@@ -8,6 +8,7 @@ class Obstacles {
     this.image = new Image();
     this.canvas;
     this.tile = tile;
+    this.player = this.game.player;
   }
   draw() {
     this.image.src = this.tile;

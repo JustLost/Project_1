@@ -10,8 +10,9 @@ class Player {
 
     this.speedX = 0;
     this.speedY = 0;
-    this.gravity = 0.05;
+    //this.gravity = 0.05;
     this.gravitySpeed = 12;
+    this.isJumping = false;
   }
   left() {
     return this.x;
@@ -32,10 +33,10 @@ class Player {
     //this.gravitySpeed += this.gravity;
 
     this.x += this.speedX;
-    this.y += this.speedY + this.gravitySpeed;
-
+    if(!this.isJumping){
+      this.y += this.speedY + this.gravitySpeed;
+    } 
     for (let i = 0; i < obstacles.length; i++) {
-      
       obstacles[i].checkCollision(this);
     }
   }

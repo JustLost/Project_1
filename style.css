@@ -1,0 +1,27 @@
+body{text-align: center;background: black;}
+.img{position:absolute;z-index:1;}
+
+.game-intro{
+    display:inline-block;
+    width:1200px; 
+    height:800px;
+    margin: 0 auto; 
+    background: black; 
+    position:relative; 
+    border:5px solid black; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 50px #333}
+
+#game-board{
+    position:relative;
+    z-index:20;
+}
+
+#start-button {
+    background-color: rgba(177, 2, 2, 0.829);
+    font-size: larger;
+    color:white;
+    width: 200px;
+    height: 75px;
+}
+

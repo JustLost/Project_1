@@ -3,7 +3,8 @@ window.onload = () => {
         startGame();
     };
     function startGame() {
-        document.getElementById("start-button").remove();
+        document.getElementById("intro").remove();
+        document.getElementById("canvas").style.background = "url('/images/uv_map_imagebackground.png')";
         const game = new Game();
         game.start();
     }

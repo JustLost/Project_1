@@ -12,7 +12,7 @@ class Game {
         this.intervalId = null;
     }
     start() {
-        this.player = new Player(this, 200, 200, 50, 100);
+        this.player = new Player(this, 250, 120, 50, 100);
         const controls = new Controls(this);
         controls.keyboardEvents();
         
