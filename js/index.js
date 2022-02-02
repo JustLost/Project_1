@@ -4,7 +4,7 @@ window.onload = () => {
     };
     function startGame() {
         document.getElementById("intro").remove();
-        document.getElementById("canvas").style.background = "url('/images/uv_map_imagebackground.png')";
+        document.getElementById("canvas").style.background = "url('/images/uv_map_imagebackground50.png')";
         const game = new Game();
         game.start();
     }

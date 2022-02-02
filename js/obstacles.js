@@ -20,6 +20,7 @@ class Obstacles {
     //   this.height,
     // );
     let tilePattern = this.game.ctx.createPattern(this.image, "repeat");
+    let tileImage = 
     this.game.ctx.fillStyle = tilePattern;
     this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
   }

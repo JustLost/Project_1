@@ -56,7 +56,7 @@ class Player {
 
   draw(obstacles) {
     this.newPos(obstacles);
-    this.img.src = "./images/Charmander.png";
+    this.img.src = "./images/dude.png";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
