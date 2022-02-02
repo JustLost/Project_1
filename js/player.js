@@ -1,5 +1,5 @@
 class Player {
-  constructor(game, x, y, width, height, name) {
+  constructor(game, x, y, width, height, name, playerImage) {
     this.game = game;
     this.x = x;
     this.y = y;
@@ -9,6 +9,7 @@ class Player {
     this.canvas;
 
     this.name = name;
+    this.playerImage = playerImage;
 
     this.speedX = 0;
     this.speedY = 0;
@@ -34,12 +35,10 @@ class Player {
   newPos(obstacles) {
     //this.gravitySpeed += this.gravity;
 
-    this.x += this.speedX;
-    // if(this.isJumping){
-    console.log(`speedy = ${this.speedY}, gravitySpeed= ${this.gravitySpeed}`);
+    this.x += this.speedX;      
     this.speedY += this.gravitySpeed;
     this.y += this.speedY;
-    // }
+
     for (let i = 0; i < obstacles.length; i++) {
       obstacles[i].checkCollision(this);
     }

@@ -48,12 +48,16 @@ class Game {
     }
     update() {
         this.clear();
-        this.drawBackground();        
+        this.drawBackground();   
+        
+        this.checkFall(this.playerOne);
+        this.checkFall(this.playerTwo);
 
         this.playerOne.draw(this.obstacles);
         this.playerTwo.draw(this.obstacles);
         
         this.drawHiddenPassage();
+        
         this.checkWinner(this.playerOne);
         this.checkWinner(this.playerTwo);
         this.checkMoves()
@@ -66,8 +70,7 @@ class Game {
     }
 
     checkMoves() {
-        Object.keys(this.controls.keys).forEach(key => {
-            console.log('key',this.controls.keys[key].state)
+        Object.keys(this.controls.keys).forEach(key => {  
             this.controls.keys[key].state && this.controls.keys[key].func()
           })
     }
@@ -77,6 +80,15 @@ class Game {
         let tilePattern = this.ctx.createPattern(hiddenImage, "repeat");
         this.ctx.fillStyle = tilePattern;
         this.ctx.fillRect(250, 250, 650, 100);
+    }
+    checkFall(player) {
+        
+        if (player.y + player.height > 800) {
+            player.y = 700;
+            player.x = 600;
+            player.speedY = 0;
+        }           
+
     }
     checkWinner(player) {
         let x = 375;
