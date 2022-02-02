@@ -1,5 +1,5 @@
 class Player {
-  constructor(game, x, y, width, height, name, playerImage) {
+  constructor(game, x, y, width, height, name, playerImage, playerImageLeft) {
     this.game = game;
     this.x = x;
     this.y = y;
@@ -10,6 +10,9 @@ class Player {
 
     this.name = name;
     this.playerImage = playerImage;
+    this.playerImageLeft = playerImageLeft;
+
+    this.imageLeft = new Image();
 
     this.speedX = 0;
     this.speedY = 0;
@@ -35,7 +38,7 @@ class Player {
   newPos(obstacles) {
     //this.gravitySpeed += this.gravity;
 
-    this.x += this.speedX;      
+    this.x += this.speedX;
     this.speedY += this.gravitySpeed;
     this.y += this.speedY;
 
@@ -55,7 +58,12 @@ class Player {
 
   draw(obstacles) {
     this.newPos(obstacles);
-    this.img.src = "./images/dude.png";
+    this.img.src = this.playerImage;
+    this.imageLeft.src = this.playerImageLeft;
+
+  
+
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+
   }
 }

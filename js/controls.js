@@ -8,6 +8,7 @@ class Controls {
         state: false,
         func: () => {
           if (this.playerOne.x + this.playerOne.width < 1200) {
+            this.playerOne.img.src = "/docs/assets/images/PlayerRight1.png";
             this.playerOne.speedX = 10;
           }
         },
@@ -16,6 +17,7 @@ class Controls {
         state: false,
         func: () => {
           if (this.playerOne.x > 1) {
+            this.playerOne.img.src = "/docs/assets/images/PlayerLeft1.png";
             this.playerOne.speedX = -10;
           }
         },
