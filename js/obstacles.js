@@ -19,10 +19,8 @@ class Obstacles {
     //   this.width,
     //   this.height,
     // );
-    let tilePattern = this.game.ctx.createPattern(this.image, "repeat");
-    let tileImage = 
-    this.game.ctx.fillStyle = tilePattern;
-    this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
+    
+    this.game.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
   checkCollision(player) {
     if (

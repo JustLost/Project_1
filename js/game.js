@@ -20,15 +20,17 @@ class Game {
         this.controls.keyboardEvents();
 
                 
-        this.obstacles.push(new Obstacles(this, 0, 0, 50, this.canvasHeight, "/images/leftside.png"));
-        this.obstacles.push(new Obstacles(this, 50, this.canvasHeight - 50, this.canvasWidth, 50, "/images/green.png"));
-        this.obstacles.push(new Obstacles(this, 0, 0, this.canvasWidth, 50, "/images/top.png"))
+        this.obstacles.push(new Obstacles(this, 0, 0, 50, this.canvasHeight, "/images/leftside.png")); 
+        this.obstacles.push(new Obstacles(this, this.canvasWidth - 300, this.canvasHeight - 50, 250, 50, "/images/bottomright.png"));      
+        this.obstacles.push(new Obstacles(this, 50, 0, 1100, 50, "/images/top.png"))
         this.obstacles.push(new Obstacles(this, this.canvasWidth -50, 0, 50, this.canvasHeight, "/images/rightside.png"));
+        this.obstacles.push(new Obstacles(this, 0, this.canvasHeight - 50, 700, 50, "/images/bottomleft.png"));
         
-        //this.obstacles.push(new Obstacles(this, 250, 200, 650, 50, "/images/uv_map_image50.png"))
-        this.obstacles.push(new Obstacles(this, 250, 350, 650, 50, "/images/uv_map_image50.png"))
-        this.obstacles.push(new Obstacles(this, 250, 400, 600, 50, "/images/uv_map_image50.png"))
-        this.obstacles.push(new Obstacles(this, 300, 450, 500, 50, "/images/uv_map_image50.png"))
+        
+        this.obstacles.push(new Obstacles(this, 250, 200, 700, 50, "/images/centertop.png"))
+        this.obstacles.push(new Obstacles(this, 250, 350, 650, 50, "/images/centerbig.png"))
+        this.obstacles.push(new Obstacles(this, 250, 400, 600, 50, "/images/centermidles.png"))
+        this.obstacles.push(new Obstacles(this, 300, 450, 500, 50, "/images/centersmall.png"))
 
         this.obstacles.push(new Obstacles(this, 50, 350, 50, 50, "/images/greenwall.png"))
         this.obstacles.push(new Obstacles(this, 50, 700, 100, 50, "/images/down-left.png"))
@@ -36,7 +38,7 @@ class Game {
         this.obstacles.push(new Obstacles(this, 1100, 350, 50, 50, "/images/greenendleft.png"))
         this.obstacles.push(new Obstacles(this, 900, 500, 100, 50, "/images/middlw-down.png"))
         this.obstacles.push(new Obstacles(this, 150, 500, 100, 50, "/images/middlw-down.png"))
-        this.obstacles.push(new Obstacles(this, 900, 200, 50, 50, "/images/uv_map_image50.png"))
+        
 
         this.obstacles.push(new Obstacles(this, 350, 50, 25, 150, "/images/uv_map_image50.png"))
 
@@ -71,10 +73,10 @@ class Game {
     }
     drawHiddenPassage() {
         let hiddenImage = new Image();
-        hiddenImage.src = "/images/uv_map_image50.png";
+        hiddenImage.src = "/images/greenmidle.png";
         let tilePattern = this.ctx.createPattern(hiddenImage, "repeat");
         this.ctx.fillStyle = tilePattern;
-        this.ctx.fillRect(250, 250, 650, 150);
+        this.ctx.fillRect(250, 250, 650, 100);
     }
     checkWinner(player) {
         let x = 375;
