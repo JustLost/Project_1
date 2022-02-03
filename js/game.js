@@ -13,7 +13,7 @@ class Game {
         this.intervalId1 = null;
         this.intervalId2 = null;
         this.controls = null;
-        this.counter = 3;
+        this.counter = 4;
     }
     start() {
         this.playerOne = new Player(this, 300, 110, 60, 100, "Player One", "./docs/assets/images/char.png", "./docs/assets/images/char.png");
@@ -60,22 +60,28 @@ class Game {
 
         this.intervalId2 = setInterval(() => {
           this.counter--;
+          
+          if(this.counter == 0) {
+            document.getElementById("timer").innerHTML = "GO!";  
+          } else {
+            document.getElementById("timer").innerHTML = this.counter;
+          }
+          
+          
         }, 1000);
-        
-        
-        
+           
 
         setTimeout(() => {
             clearInterval(this.intervalId2);
             this.countdown();
             
-        }, 3900);
+        }, 4900);
     }
 
     countdown() {
         this.intervalId1 = setInterval(() => {
             this.update();
-            
+            document.getElementById("timer").remove();
         }, 1000 / 60);
     }
 
@@ -155,6 +161,8 @@ class Game {
                   
         this.stop();
         document.getElementById("canvas").remove();
+
+        document.getElementById("winner-board").style.display = "inline-block";
 
         let imgOne = document.createElement("img");
         imgOne.src = "./docs/assets/images/playerONE.png";
