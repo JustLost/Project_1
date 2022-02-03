@@ -151,11 +151,25 @@ class Game {
           playerLeft_ObjRight < playerTop_ObjBottom &&
           playerLeft_ObjRight < playerBottom_ObjTop
         ) {
-          console.log(player.name);
-          
-          document.getElementById("winner").innerHTML = `${player.name} won!`;
-          this.stop();
-          document.getElementById("canvas").remove();
+                    
+                  
+        this.stop();
+        document.getElementById("canvas").remove();
+
+        let imgOne = document.createElement("img");
+        imgOne.src = "./docs/assets/images/playerONE.png";
+        let imgTwo = document.createElement("img");
+        imgTwo.src = "./docs/assets/images/playerTSWO.png";
+
+        
+        if (player.name == this.playerOne.name) {
+          document.getElementById("winner").appendChild(imgOne);
+          document.getElementById("loser").appendChild(imgTwo);
+        } else {
+          document.getElementById("winner").appendChild(imgTwo);
+          document.getElementById("loser").appendChild(imgOne);
+        }
+
         }
     }
     drawBackground() {
