@@ -84,7 +84,7 @@ class Game {
     checkFall(player) {
         
         if (player.y + player.height > 800) {
-            player.y = 700;
+            player.y = 650;
             player.x = 600;
             player.speedY = 0;
         }           
