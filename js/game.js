@@ -10,8 +10,10 @@ class Game {
         this.y = 0;
         this.canvasWidth = 1200;
         this.canvasHeight = 800;
-        this.intervalId = null;
+        this.intervalId1 = null;
+        this.intervalId2 = null;
         this.controls = null;
+        this.counter = 3;
     }
     start() {
         this.playerOne = new Player(this, 300, 110, 60, 100, "Player One", "./docs/assets/images/char.png", "./docs/assets/images/char.png");
@@ -46,10 +48,37 @@ class Game {
         this.obstacles.push(new Obstacles(this, 750, 150, 80, 50, "./docs/assets/images/left-rock.png"))
         this.obstacles.push(new Obstacles(this, 450, 600, 150, 150, "./docs/assets/images/Right-rock.png"))
 
-        this.intervalId = setInterval(() => {
+        for (let i = 0; i < this.obstacles.length; i += 1) {
+          this.obstacles[i].draw();
+        }
+        this.playerOne.draw(this.obstacles);
+        this.playerTwo.draw(this.obstacles);
+
+        this.drawHiddenPassage();
+        this.checkWinner(this.playerOne);
+        this.checkWinner(this.playerTwo);
+
+        this.intervalId2 = setInterval(() => {
+          this.counter--;
+        }, 1000);
+        
+        
+        
+
+        setTimeout(() => {
+            clearInterval(this.intervalId2);
+            this.countdown();
+            
+        }, 3900);
+    }
+
+    countdown() {
+        this.intervalId1 = setInterval(() => {
             this.update();
+            
         }, 1000 / 60);
     }
+
     update() {
         this.clear();
         this.drawBackground();   
@@ -97,10 +126,10 @@ class Game {
     checkWinner(player) {
         let x = 375;
         let y = 50;
-        let width = 5;
+        let width = 25;
         let height = 150;
         let checkPoint= new Image();
-        checkPoint.src = "./docs/assets/images/uv_map_image50.png";
+         checkPoint.src = "./docs/assets/images/flag.png";
         let tilePattern = this.ctx.createPattern(checkPoint, "repeat");
         this.ctx.fillStyle = tilePattern;
         this.ctx.fillRect(x, y, width, height);
@@ -134,7 +163,7 @@ class Game {
         //this.ctx.drawImage(this.drawBackground, this.x, this.y, this.canvasWidth, this.canvasHeight);
     }
     stop() {
-        clearInterval(this.intervalId);
+        clearInterval(this.intervalId1);
     }
     clear() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)

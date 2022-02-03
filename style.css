@@ -7,11 +7,15 @@ body{text-align: center;background: linear-gradient(rgba(101, 101, 190, 0.884), 
     height:800px;
     margin: 0 auto; 
     background-image: url("./docs/assets/images/backgroundIntro.png");
-    position:relative;     
+         
     border-radius: 10px; 
     box-shadow: 0 5px 50px #333;
 }
 
+#timer {
+    position:relative;
+    color: white;
+}
 #intro {
     display: flex;        
     justify-content: center;
