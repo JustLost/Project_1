@@ -14,8 +14,8 @@ class Game {
         this.controls = null;
     }
     start() {
-        this.playerOne = new Player(this, 300, 110, 50, 100, "Player One", "./docs/assets/images/PlayerRight.png", "./docs/assets/images/PlayerLeft.png");
-        this.playerTwo = new Player(this, 300, 120, 50, 100, "Player Two", "./docs/assets/images/PlayerRight1.png", "./docs/assets/images/PlayerLeft1.png");
+        this.playerOne = new Player(this, 300, 110, 60, 100, "Player One", "./docs/assets/images/char.png", "./docs/assets/images/char.png");
+        this.playerTwo = new Player(this, 300, 120, 60, 100, "Player Two", "./docs/assets/images/char2.png", "./docs/assets/images/char2.png");
         this.controls = new Controls(this);
         this.controls.keyboardEvents();
 
@@ -39,8 +39,12 @@ class Game {
         this.obstacles.push(new Obstacles(this, 900, 500, 100, 50, "./docs/assets/images/middlw-down.png"))
         this.obstacles.push(new Obstacles(this, 150, 500, 100, 50, "./docs/assets/images/middlw-down.png"))
         
-
-        this.obstacles.push(new Obstacles(this, 350, 50, 25, 150, "./docs/assets/images/uv_map_image50.png"))
+        //startingwall
+        this.obstacles.push(new Obstacles(this, 350, 50, 25, 150, "./docs/assets/images/startwall.png"))
+        this.obstacles.push(new Obstacles(this, 150, 500, 100, 50, "./docs/assets/images/middlw-down.png"))
+        this.obstacles.push(new Obstacles(this, 250, 650, 50, 100, "./docs/assets/images/box50x100.png"))
+        this.obstacles.push(new Obstacles(this, 750, 150, 80, 50, "./docs/assets/images/left-rock.png"))
+        this.obstacles.push(new Obstacles(this, 450, 600, 150, 150, "./docs/assets/images/Right-rock.png"))
 
         this.intervalId = setInterval(() => {
             this.update();
@@ -85,7 +89,7 @@ class Game {
         
         if (player.y + player.height > 800) {
             player.y = 650;
-            player.x = 600;
+            player.x = 400;
             player.speedY = 0;
         }           
 
