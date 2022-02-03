@@ -9,17 +9,24 @@ body{text-align: center;background: linear-gradient(rgba(101, 101, 190, 0.884), 
     background-image: url("./docs/assets/images/backgroundIntro.png");
     position:relative;     
     border-radius: 10px; 
-    box-shadow: 0 5px 50px #333}
+    box-shadow: 0 5px 50px #333;
+}
 
 #intro {
     display: flex;        
     justify-content: center;
 
 }
-#game-board {
-    position:relative;
-    z-index:20;
-    
+
+#game-board {    
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#canvas {
+    border-radius: 10px; 
+    box-shadow: 0 5px 50px #333;
 }
 
 #start-button {    
