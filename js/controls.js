@@ -8,7 +8,7 @@ class Controls {
         state: false,
         func: () => {
           if (this.playerOne.x + this.playerOne.width < 1200) {
-            this.playerOne.img.src = "./docs/assets/images/charright.png";
+            this.playerOne.lookLeft = false;
             this.playerOne.speedX = 10;
           }
         },
@@ -17,7 +17,7 @@ class Controls {
         state: false,
         func: () => {
           if (this.playerOne.x > 1) {
-            this.playerOne.img.src = "./docs/assets/images/char.png";
+            this.playerOne.lookLeft = true;
             this.playerOne.speedX = -10;
           }
         },
@@ -56,16 +56,18 @@ class Controls {
       },
       keyA: {
         state: false,
-        func: () => {
+        func: () => {          
           if (this.playerTwo.x > 1) {
+            this.playerTwo.lookLeft = true;
             this.playerTwo.speedX = -10;
           }
         },
       },
       keyD: {
         state: false,
-        func: () => {
+        func: () => {          
           if (this.playerTwo.x + this.playerTwo.width < 1200) {
+            this.playerTwo.lookLeft = false;
             this.playerTwo.speedX = 10;
           }
         },

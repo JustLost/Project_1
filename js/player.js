@@ -19,6 +19,9 @@ class Player {
     //this.gravity = 0.05;
     this.gravitySpeed = 2;
     this.isJumping = false;
+
+    this.lookLeft = true;
+    
   }
   left() {
     return this.x;
@@ -61,9 +64,11 @@ class Player {
     this.img.src = this.playerImage;
     this.imageLeft.src = this.playerImageLeft;
 
-  
-
-    this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    if(this.lookLeft){
+      this.game.ctx.drawImage(this.imageLeft, this.x, this.y, this.width, this.height);
+    } else {
+      this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    }
 
   }
 }

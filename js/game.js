@@ -16,8 +16,8 @@ class Game {
         this.counter = 4;
     }
     start() {
-        this.playerOne = new Player(this, 300, 110, 60, 100, "Player One", "./docs/assets/images/char.png", "./docs/assets/images/char.png");
-        this.playerTwo = new Player(this, 300, 120, 60, 100, "Player Two", "./docs/assets/images/char2.png", "./docs/assets/images/char2.png");
+        this.playerOne = new Player(this, 300, 110, 50, 80, "Player One", "./docs/assets/images/OneRight.png", "./docs/assets/images/OneLeft.png");
+        this.playerTwo = new Player(this, 300, 120, 50, 80, "Player Two", "./docs/assets/images/TwoRight.png", "./docs/assets/images/TwoLeftt.png");
         this.controls = new Controls(this);
         this.controls.keyboardEvents();
 
@@ -115,10 +115,10 @@ class Game {
     }
     drawHiddenPassage() {
         let hiddenImage = new Image();
-        hiddenImage.src = "./docs/assets/images/greenmidle.png";
-        let tilePattern = this.ctx.createPattern(hiddenImage, "repeat");
-        this.ctx.fillStyle = tilePattern;
-        this.ctx.fillRect(250, 250, 650, 100);
+        hiddenImage.src = "./docs/assets/images/hidden.png";
+        
+        
+        this.ctx.drawImage(hiddenImage, 250, 250, 650, 100);
     }
     checkFall(player) {
         
@@ -135,10 +135,8 @@ class Game {
         let width = 25;
         let height = 150;
         let checkPoint= new Image();
-         checkPoint.src = "./docs/assets/images/flag.png";
-        let tilePattern = this.ctx.createPattern(checkPoint, "repeat");
-        this.ctx.fillStyle = tilePattern;
-        this.ctx.fillRect(x, y, width, height);
+        checkPoint.src = "./docs/assets/images/flag.png";              
+        this.ctx.drawImage(checkPoint, x, y, width, height);
 
         let playerTop_ObjBottom = Math.abs(player.y - (y + height));        
         let playerLeft_ObjRight = Math.abs(player.x - (x + width));
