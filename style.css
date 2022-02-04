@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-body{text-align: center;background: linear-gradient(rgba(101, 101, 190, 0.884), rgb(171, 228, 171), white); height: 2000px;}
+body{text-align: center;background: linear-gradient(rgba(101, 101, 190, 0.884), rgb(171, 228, 171), white); height: 1200px;}
 .img{position:absolute;z-index:1;}
 
 .game-intro{
