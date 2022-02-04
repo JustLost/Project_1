@@ -16,8 +16,8 @@ class Game {
         this.counter = 4;
     }
     start() {
-        this.playerOne = new Player(this, 300, 110, 50, 80, "Player One", "./docs/assets/images/OneRight.png", "./docs/assets/images/OneLeft.png");
-        this.playerTwo = new Player(this, 300, 120, 50, 80, "Player Two", "./docs/assets/images/TwoRight.png", "./docs/assets/images/TwoLeftt.png");
+        this.playerOne = new Player(this, 275, 60, 50, 80, "Player One", "./docs/assets/images/OneRight.png", "./docs/assets/images/OneLeft.png");
+        this.playerTwo = new Player(this, 275, 60, 50, 80, "Player Two", "./docs/assets/images/TwoRight.png", "./docs/assets/images/TwoLeftt.png");
         this.controls = new Controls(this);
         this.controls.keyboardEvents();
 
@@ -123,9 +123,10 @@ class Game {
     checkFall(player) {
         
         if (player.y + player.height > 800) {
-            player.y = 650;
-            player.x = 400;
+            player.y = 60;
+            player.x = 275;
             player.speedY = 0;
+            
         }           
 
     }
